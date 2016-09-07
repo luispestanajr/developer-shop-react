@@ -1,0 +1,21 @@
+.tableMembers td{
+
+    vertical-align: middle !important;
+}
+
+.tableMembers td.right {
+
+    text-align:right;
+    padding-right:10px;
+}
+
+.tableMembers td.width100{
+
+    width:100px !important;
+}
+
+.tableMembers td.action{
+
+    text-align:center;
+    width:120px !important;
+}
