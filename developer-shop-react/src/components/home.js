@@ -1,4 +1,3 @@
-//Imports necessários
 import React, { Component } from 'react';
 import Header from './header';
 import MemberList from './memberlist';
@@ -13,7 +12,9 @@ require('bootstrap');
 
 //Declaração da classe principal do projeto
 class DeveloperShop extends Component {
+
   render() {
+
         return (
             <div>
                 <Header />

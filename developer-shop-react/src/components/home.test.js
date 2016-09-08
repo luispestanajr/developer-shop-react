@@ -7,5 +7,4 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   var obj = ReactDOM.render(<App />, div);
   console.log(obj);
-
 });

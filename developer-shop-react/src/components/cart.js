@@ -14,32 +14,41 @@ class Cart extends Component {
     }
 
     render() {
-        let cartItems = this.state.cartItems.map((member, i) => (
-            <tr key={member.id}>
-                <td className="number">{member.id}</td>
-                <td>{member.login}</td>
-                <td>{member.company}</td>
-                <td><a href={member.blog} target="_blank">{member.blog}</a></td>
-                <td>{member.location}</td>
-                <td>{member.email}</td>
-                <td className="number">$ {member.price}</td>
-                <td className="formInput">
-                    <div className="form-group" ref={'div_hours_' + member.id} style={{marginBottom: 0}}>
-                        <input type="number"
-                               className="form-control"
-                               defaultValue="1"
-                               min="1"
-                               max="999"
-                               ref={'hours_' + member.id}
-                               onChange={(event) => this._updateCartItem(event, member)}
-                               required />
-                    </div>
-                </td>
-                <td className="formInputButton">
-                    <button className="btn btn-danger" onClick={(event) => this._removeCartItem(event, member)}>Remove</button>
-                </td>
-            </tr>
-        ));
+
+        //Destrutive
+        let {cartItemsList} = this.state;
+
+        let cartItems = cartItemsList.map((member) => {
+
+            let {id, login, company, blog, location, email, price} = member;
+
+            return (
+                <tr key={id}>
+                    <td className="number">{id}</td>
+                    <td>{login}</td>
+                    <td>{company}</td>
+                    <td><a href={blog} target="_blank">{blog}</a></td>
+                    <td>{location}</td>
+                    <td>{email}</td>
+                    <td className="number">$ {price}</td>
+                    <td className="formInput">
+                        <div className="form-group" ref={'div_hours_' + id} style={{marginBottom: 0}}>
+                            <input type="number"
+                                   className="form-control"
+                                   defaultValue="1"
+                                   min="1"
+                                   max="999"
+                                   ref={'hours_' + id}
+                                   onChange={(event) => this._updateCartItem(event, member)}
+                                   required />
+                        </div>
+                    </td>
+                    <td className="formInputButton">
+                        <button className="btn btn-danger" onClick={(event) => this._removeCartItem(event, member)}>Remove</button>
+                    </td>
+                </tr>
+            )}
+        );
 
         return (
             <div className="row">
